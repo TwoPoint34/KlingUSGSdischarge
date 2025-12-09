@@ -72,3 +72,32 @@ ggplot(df_clean, aes(x = date, y = value)) +
   geom_smooth(method = "lm", col = "red") +
   labs(title = paste("Trend for Site", siteNumber),
        x = "Date", y = "Value")
+
+# Save first plot
+png("time_series_plot.png", width = 1200, height = 800)
+ggplot(df_clean, aes(x = date, y = value)) +
+  geom_line(color = "blue") +
+  labs(
+    title = paste("Site", siteNumber, "- parameter", parameterCd),
+    x = "Date",
+    y = "Value"
+  )
+dev.off()  # close the graphics device
+
+# ---- Save linear model summary to a text file ----
+sink("linear_model_summary.txt")
+cat("Linear model summary:\n")
+print(summary(model))
+sink()  # reset output to console
+
+# Save second plot with trend line
+png("trend_plot.png", width = 1200, height = 800)
+ggplot(df_clean, aes(x = date, y = value)) +
+  geom_line(alpha = 0.6, color = "blue") +
+  geom_smooth(method = "lm", col = "red") +
+  labs(
+    title = paste("Trend for Site", siteNumber, "- parameter", parameterCd),
+    x = "Date",
+    y = "Value"
+  )
+dev.off()
