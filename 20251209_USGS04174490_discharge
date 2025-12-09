@@ -84,7 +84,7 @@ ggplot(df_clean, aes(x = date, y = value)) +
   )
 dev.off()  # close the graphics device
 
-# ---- Save linear model summary to a text file ----
+# ---- Save linear model summary to text file ----
 sink("linear_model_summary.txt")
 cat("Linear model summary:\n")
 print(summary(model))
