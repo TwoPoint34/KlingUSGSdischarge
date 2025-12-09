@@ -1,0 +1,1 @@
+This is the readme for a sample program written in R that produces summary statistics and a regression equation for discharge/streamflow in the Allen Creek watershed in Ann Arbor, Michigan. USGS data for site 04174490 is used starting from 2020-01-01 and ending 2021-01-01.
